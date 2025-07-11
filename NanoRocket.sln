@@ -8,6 +8,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{C6F4FA7C-6
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.RocketConsumerService", "Test\Test.RocketConsumerService\Test.RocketConsumerService.csproj", "{313F0A9A-0DB6-44CA-A774-5CCB6E37AF8C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Example", "Example", "{10BF0011-2E0C-4417-9DFF-C42209E92C84}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example.ReadSettingConsumer", "Example\Example.ReadSettingConsumer\Example.ReadSettingConsumer.csproj", "{8D1EC1F8-EFDA-4431-B12E-D8C4A4F3B08E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -16,6 +20,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{95F40028-7CC5-41FC-A708-8B251D16B208} = {DE1297E4-D4C3-4E24-AB07-14DDAC613732}
 		{313F0A9A-0DB6-44CA-A774-5CCB6E37AF8C} = {C6F4FA7C-6CA9-43F1-84A9-0C595CCDBDF7}
+		{8D1EC1F8-EFDA-4431-B12E-D8C4A4F3B08E} = {10BF0011-2E0C-4417-9DFF-C42209E92C84}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{95F40028-7CC5-41FC-A708-8B251D16B208}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -26,5 +31,9 @@ Global
 		{313F0A9A-0DB6-44CA-A774-5CCB6E37AF8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{313F0A9A-0DB6-44CA-A774-5CCB6E37AF8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{313F0A9A-0DB6-44CA-A774-5CCB6E37AF8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D1EC1F8-EFDA-4431-B12E-D8C4A4F3B08E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D1EC1F8-EFDA-4431-B12E-D8C4A4F3B08E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D1EC1F8-EFDA-4431-B12E-D8C4A4F3B08E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D1EC1F8-EFDA-4431-B12E-D8C4A4F3B08E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
