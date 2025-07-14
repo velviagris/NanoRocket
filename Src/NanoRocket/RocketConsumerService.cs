@@ -36,15 +36,16 @@ public class RocketConsumerService : IHostedService, IDisposable
         {
             cancellationToken.Register(() => _consumerCts.Cancel());
 
-            var rocketConfig = _configuration.GetSection("NanoRocket");
-            var consumerConfig = rocketConfig.GetSection("Consumers");
-            var targetConfig = consumerConfig.GetSection(_configKey);
-            var consumerGroup = targetConfig.GetValue<string>("ConsumerGroup") ??
+            var rocketConfig = _configuration.GetSection("NanoRocket").Get<RocketConfiguration>();
+            var consumerConfig = rocketConfig?.Consumers ?? throw new Exception("Consumers not set");
+            ConsumerConfig? targetConfig = new();
+            consumerConfig?.TryGetValue(_configKey, out targetConfig);
+            var consumerGroup = targetConfig?.ConsumerGroup ??
                                 throw new Exception("ConsumerGroup should not be null");
-            var topic = targetConfig.GetValue<string>("Topic") ?? throw new Exception("Topic should not be null");
-            var endpoints = targetConfig.GetValue<string>("Endpoints") ?? throw new Exception("Endpoints should not be null");
-            var accessKey = targetConfig.GetValue<string>("AccessKey");
-            var secretKey = targetConfig.GetValue<string>("SecretKey");
+            var topic = targetConfig.Topic ?? throw new Exception("Topic should not be null");
+            var endpoints = targetConfig.Endpoints ?? throw new Exception("Endpoints should not be null");
+            var accessKey = targetConfig.AccessKey;
+            var secretKey = targetConfig.SecretKey;
 
             var messageHandler = _serviceProvider.GetKeyedService<IMessageHandler>(_handlerKey) ??
                                  throw new Exception($"Could not find handler by handlerKey: {_handlerKey}");

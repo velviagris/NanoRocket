@@ -21,11 +21,12 @@ public class FooTopicService : BackgroundService
         {
             try
             {
-                var rocketConfig = _configuration.GetSection("NanoRocket");
-                var producerConfig = rocketConfig.GetSection("Producers");
-                var targetConfig = producerConfig.GetSection("FooTopicProducer");
+                var rocketConfig = _configuration.GetSection("NanoRocket").Get<RocketConfiguration>();
+                var producerConfig = rocketConfig?.Producers ?? throw new Exception("Producers not set");
+                ProducerConfig? targetConfig = new();
+                producerConfig?.TryGetValue("FooTopicProducer", out targetConfig);
         
-                var topic = targetConfig.GetValue<string>("Topic") ?? throw new Exception("Topic should not be null");
+                var topic = targetConfig?.Topic ?? throw new Exception("Topic should not be null");
                 var producer = await RocketProducerHelper.GetNormalProducerAsync(_configuration, "FooTopicProducer");
             
                 // Define your message body.

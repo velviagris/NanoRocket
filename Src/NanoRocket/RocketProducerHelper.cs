@@ -11,14 +11,15 @@ public static class RocketProducerHelper
 {
     public static Producer.Builder GetProducerBuilder(IConfiguration configuration, string producerKey)
     {
-        var rocketConfig = configuration.GetSection("NanoRocket");
-        var producerConfig = rocketConfig.GetSection("Producers");
-        var targetConfig = producerConfig.GetSection(producerKey);
+        var rocketConfig = configuration.GetSection("NanoRocket").Get<RocketConfiguration>();
+        var producerConfig = rocketConfig?.Producers ?? throw new Exception("Producers not set");
+        ProducerConfig? targetConfig = new();
+        producerConfig?.TryGetValue(producerKey, out targetConfig);
         
-        var topic = targetConfig.GetValue<string>("Topic") ?? throw new Exception("Topic should not be null");
-        var endpoints = targetConfig.GetValue<string>("Endpoints") ?? throw new Exception("Endpoints should not be null");
-        var accessKey = targetConfig.GetValue<string>("AccessKey");
-        var secretKey = targetConfig.GetValue<string>("SecretKey");
+        var topic = targetConfig?.Topic ?? throw new Exception("Topic should not be null");
+        var endpoints = targetConfig.Endpoints ?? throw new Exception("Endpoints should not be null");
+        var accessKey = targetConfig.AccessKey;
+        var secretKey = targetConfig.SecretKey;
         
         var credentialsProvider = !string.IsNullOrEmpty(accessKey) && !string.IsNullOrEmpty(secretKey) ? new StaticSessionCredentialsProvider(accessKey, secretKey) : null;
         var clientConfigBuilder = new ClientConfig.Builder()
