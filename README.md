@@ -1,6 +1,6 @@
-﻿![NanoRocket logo](https://raw.githubusercontent.com/cgcel/NanoRabbit/master/Img/logo.png)
+﻿![NanoRocket logo](https://raw.githubusercontent.com/velviagris/NanoRocket/master/Img/logo.png)
 
-[![NuGet](https://img.shields.io/nuget/v/NanoRabbit.svg)](https://nuget.org/packages/NanoRabbit) [![Nuget Downloads](https://img.shields.io/nuget/dt/NanoRocket)](https://www.nuget.org/packages/NanoRabbit) [![License](https://img.shields.io/github/license/velviagris/NanoRocket)](https://github.com/cgcel/NanoRabbit)
+[![NuGet](https://img.shields.io/nuget/v/NanoRocket.svg)](https://nuget.org/packages/NanoRocket) [![Nuget Downloads](https://img.shields.io/nuget/dt/NanoRocket)](https://www.nuget.org/packages/NanoRocket) [![License](https://img.shields.io/github/license/velviagris/NanoRocket)](https://github.com/velviagris/NanoRocket)
 [![codebeat badge](https://codebeat.co/badges/a37a04d9-dd8e-4177-9b4c-c17526910f7e)](https://codebeat.co/projects/github-com-velviagris-nanorocket-master)
 
 ## About
@@ -11,8 +11,8 @@ NanoRocket is an extension library for RocketMQ.Client.
 
 | Branch |                                                                                   Building Status                                                                                    |
 |:------:|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
-| master | [![build](https://github.com/velviagris/NanoRocket/actions/workflows/build.yml/badge.svg?branch=master&event=push)](https://github.com/cgcel/NanoRabbit/actions/workflows/build.yml) |
-|  dev   |  [![build](https://github.com/velviagris/NanoRocket/actions/workflows/build.yml/badge.svg?branch=dev&event=push)](https://github.com/cgcel/NanoRabbit/actions/workflows/build.yml)   |
+| master | [![build](https://github.com/velviagris/NanoRocket/actions/workflows/build.yml/badge.svg?branch=master&event=push)](https://github.com/velviagris/NanoRocket/actions/workflows/build.yml) |
+|  dev   |  [![build](https://github.com/velviagris/NanoRocket/actions/workflows/build.yml/badge.svg?branch=dev&event=push)](https://github.com/velviagris/NanoRocket/actions/workflows/build.yml)   |
 
 ## Features
 
@@ -28,7 +28,7 @@ See [Wiki](https://github.com/velviagris/NanoRocket/wiki/Installation) for more 
 
 ## Version
 
-|  NanoRocket   | RabbitMQ.Client |     .NET      |
+|  NanoRocket   | RocketMQ.Client |     .NET      |
 |:-------------:|:---------------:|:-------------:|
 |     1.0.0     |      5.1.0      |      8.0      |
 
