@@ -26,6 +26,5 @@ IHostBuilder CreateHostBuilder(string[] args) =>
     Host.CreateDefaultBuilder(args)
         .ConfigureServices((hostContext, services) =>
         {
-            // 注入 rocketmq 消费者
             services.AddRocketConsumerServiceFromAppSettings<FooTopicHandler>("FooTopicHandlerConfig");
         });

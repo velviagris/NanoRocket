@@ -6,7 +6,7 @@ namespace Example.ReadSettingConsumer;
 
 public class FooTopicHandler : IMessageHandler
 {
-    public async Task HandleMessage(MessageView message)
+    public async Task HandleMessageAsync(MessageView message)
     {
         Console.WriteLine(Encoding.UTF8.GetString(message.Body));
 
