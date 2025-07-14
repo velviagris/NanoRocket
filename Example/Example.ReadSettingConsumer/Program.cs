@@ -26,5 +26,5 @@ IHostBuilder CreateHostBuilder(string[] args) =>
     Host.CreateDefaultBuilder(args)
         .ConfigureServices((hostContext, services) =>
         {
-            services.AddRocketConsumerServiceFromAppSettings<FooTopicHandler>("FooTopicHandlerConfig");
+            services.AddRocketConsumerServiceFromAppSettings<FooTopicHandler>("FooTopicConsumer");
         });
