@@ -9,7 +9,7 @@ namespace NanoRocket;
 
 public static class RocketProducerHelper
 {
-    public static async Task<Producer.Builder> GetProducerBuilder(IConfiguration configuration, string producerKey)
+    public static Producer.Builder GetProducerBuilder(IConfiguration configuration, string producerKey)
     {
         var rocketConfig = configuration.GetSection("NanoRocket");
         var producerConfig = rocketConfig.GetSection("Producers");
@@ -37,7 +37,7 @@ public static class RocketProducerHelper
     
     public static async Task<Producer> GetNormalProducerAsync(IConfiguration configuration, string producerKey)
     {
-        var producerBuilder = await GetProducerBuilder(configuration, producerKey);
+        var producerBuilder = GetProducerBuilder(configuration, producerKey);
         var producer = await producerBuilder.Build();
         
         return producer;
@@ -45,7 +45,7 @@ public static class RocketProducerHelper
 
     // public static Task<Producer> GetTransactionProducerAsync(ref ITransaction transaction, IConfiguration configuration, string producerKey)
     // {
-    //     var producerBuilder = GetProducerBuilder(configuration, producerKey).ConfigureAwait(false).GetAwaiter().GetResult();
+    //     var producerBuilder = GetProducerBuilder(configuration, producerKey);
     //     producerBuilder.SetTransactionChecker(new TransactionChecker());
     //     var producer = producerBuilder.Build().ConfigureAwait(false).GetAwaiter().GetResult();
     //
