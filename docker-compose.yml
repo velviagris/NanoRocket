@@ -1,0 +1,65 @@
+services:
+  namesrv:
+    image: apache/rocketmq:5.3.3
+    container_name: rmqnamesrv
+    ports:
+      - 9876:9876
+    networks:
+      - rocketmq
+    command: sh mqnamesrv
+  broker:
+    image: apache/rocketmq:5.3.3
+    container_name: rmqbroker
+    ports:
+      - 10909:10909
+      - 10911:10911
+      - 10912:10912
+    environment:
+      - NAMESRV_ADDR=rmqnamesrv:9876
+    depends_on:
+      - namesrv
+    networks:
+      - rocketmq
+    command: sh mqbroker
+  proxy:
+    image: apache/rocketmq:5.3.3
+    container_name: rmqproxy
+    networks:
+      - rocketmq
+    depends_on:
+      - broker
+      - namesrv
+    ports:
+      - 8080:8080
+      - 8081:8081
+    restart: on-failure
+    environment:
+      - NAMESRV_ADDR=rmqnamesrv:9876
+      - PROXY_OUTER_ADDRESS=proxy:8081
+    command: sh mqproxy
+
+  rocketmq-dashboard:
+    image: apacherocketmq/rocketmq-dashboard:latest
+    container_name: rocketmq-dashboard
+    ports:
+      - 9879:8080 # 将宿主机的8080端口映射到容器的8080端口
+    environment:
+      # 设置 RocketMQ NameServer 的地址
+      # 注意：在 Docker Compose 环境中，'127.0.0.1' 指的是容器自身的环回地址，
+      # 如果你的 NameServer 运行在宿主机上，或者在另一个 Docker Compose 服务中，
+      # 需要正确配置其可访问的IP或服务名。
+      # 
+      # 假设你的 NameServer 也在 Docker Compose 文件中定义为 'nameserver' 服务，
+      # 那么这里应该是 'nameserver:9876'。
+      # 如果 NameServer 运行在宿主机上，你需要替换成宿主机的IP地址 (例如，192.168.1.100)。
+      # 如果 NameServer 运行在另一个网络中，确保它可以被 dashboard 容器访问到。
+      - JAVA_OPTS=-Drocketmq.namesrv.addr=rmqnamesrv:9876
+    # 如果 NameServer 不在同一个 Docker 网络中，你可能需要添加 network_mode: "host"
+    # network_mode: "host" # 如果你需要 dashboard 直接访问宿主机的网络
+    networks:
+      - rocketmq # Assign this service to a custom network named 'rocketmq'
+    restart: always # 容器退出时总是重启
+
+networks:
+  rocketmq:
+    driver: bridge

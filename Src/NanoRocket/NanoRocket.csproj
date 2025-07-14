@@ -4,6 +4,13 @@
         <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <Authors>GC Chen</Authors>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Title>NanoRocket</Title>
+        <Description>NanoRocket is an extension library for RocketMQ.Client.</Description>
+        <PackageProjectUrl>https://github.com/velviagris/NanoRocket</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/velviagris/NanoRocket</RepositoryUrl>
+        <PackageTags>RocketMQ</PackageTags>
     </PropertyGroup>
 
     <ItemGroup>

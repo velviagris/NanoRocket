@@ -14,6 +14,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example.ReadSettingConsumer
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example.ReadSettingProducer", "Example\Example.ReadSettingProducer\Example.ReadSettingProducer.csproj", "{58688AFD-0329-43F7-8DF5-2839B6DA6F4C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution", "Solution", "{32F4592E-E993-4108-83AA-183B4593466A}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE.txt = LICENSE.txt
+		docker-compose.yml = docker-compose.yml
+		README.md = README.md
+		.gitignore = .gitignore
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,6 +32,9 @@ Global
 		{313F0A9A-0DB6-44CA-A774-5CCB6E37AF8C} = {C6F4FA7C-6CA9-43F1-84A9-0C595CCDBDF7}
 		{8D1EC1F8-EFDA-4431-B12E-D8C4A4F3B08E} = {10BF0011-2E0C-4417-9DFF-C42209E92C84}
 		{58688AFD-0329-43F7-8DF5-2839B6DA6F4C} = {10BF0011-2E0C-4417-9DFF-C42209E92C84}
+		{DE1297E4-D4C3-4E24-AB07-14DDAC613732} = {32F4592E-E993-4108-83AA-183B4593466A}
+		{10BF0011-2E0C-4417-9DFF-C42209E92C84} = {32F4592E-E993-4108-83AA-183B4593466A}
+		{C6F4FA7C-6CA9-43F1-84A9-0C595CCDBDF7} = {32F4592E-E993-4108-83AA-183B4593466A}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{95F40028-7CC5-41FC-A708-8B251D16B208}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
