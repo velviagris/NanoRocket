@@ -109,7 +109,7 @@ public class RocketConsumerService : IHostedService, IDisposable
                             {
                                 foreach (var message in messageViews)
                                 {
-                                    await messageHandler.HandleMessage(message);
+                                    await messageHandler.HandleMessageAsync(message);
                                     _logger.LogInformation(
                                         $"[{_configKey}] Received a message, topic={message.Topic}, message-id={message.MessageId}, body-size={message.Body.Length}");
                                     await _simpleConsumer.Ack(message);

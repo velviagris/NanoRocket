@@ -4,5 +4,5 @@ namespace NanoRocket;
 
 public interface IMessageHandler
 {
-    public Task HandleMessage(MessageView message);
+    public Task HandleMessageAsync(MessageView message);
 }
