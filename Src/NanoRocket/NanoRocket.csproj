@@ -10,6 +10,8 @@
         <Description>NanoRocket is an extension library for RocketMQ.Client.</Description>
         <PackageProjectUrl>https://github.com/velviagris/NanoRocket</PackageProjectUrl>
         <RepositoryUrl>https://github.com/velviagris/NanoRocket</RepositoryUrl>
+        <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageTags>RocketMQ</PackageTags>
     </PropertyGroup>
 
@@ -17,6 +19,17 @@
       <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.1" />
       <PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.1" />
       <PackageReference Include="RocketMQ.Client" Version="5.1.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="..\..\LICENSE.txt">
+          <Pack>True</Pack>
+          <PackagePath>\</PackagePath>
+      </Content>
+      <Content Include="..\..\README.md">
+          <Pack>True</Pack>
+          <PackagePath>\</PackagePath>
+      </Content>
     </ItemGroup>
 
 </Project>

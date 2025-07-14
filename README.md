@@ -52,4 +52,4 @@ For more, please visit the [Examples](https://github.com/velviagris/NanoRocket/t
 
 ## License
 
-NanoRocket is licensed under the [MIT](https://github.com/velviagris/NanoRocket/blob/dev/LICENSE.txt) license.
+NanoRocket is licensed under the [MIT](https://github.com/velviagris/NanoRocket/blob/master/LICENSE.txt) license.
