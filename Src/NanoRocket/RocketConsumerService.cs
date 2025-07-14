@@ -12,9 +12,9 @@ public class RocketConsumerService : IHostedService, IDisposable
     private readonly IConfiguration _configuration;
     private readonly string _configKey;
     private readonly string _handlerKey;
-    private SimpleConsumer _simpleConsumer;
+    private SimpleConsumer? _simpleConsumer;
     private readonly IServiceProvider _serviceProvider;
-    private CancellationTokenSource _consumerCts;
+    private readonly CancellationTokenSource _consumerCts;
 
     public RocketConsumerService(
         ILogger<RocketConsumerService> logger,
@@ -25,6 +25,7 @@ public class RocketConsumerService : IHostedService, IDisposable
         _configKey = configKey;
         _serviceProvider = serviceProvider;
         _handlerKey = handlerKey;
+        _simpleConsumer = null;
         _consumerCts = new CancellationTokenSource();
     }
 
@@ -87,7 +88,7 @@ public class RocketConsumerService : IHostedService, IDisposable
 
                         _logger.LogInformation($"{endpoints}|{topic}|Consumer initialized");
                         
-                        return;
+                        break;
                     }
                     catch (Exception e)
                     {
@@ -99,6 +100,7 @@ public class RocketConsumerService : IHostedService, IDisposable
 
             _ = Task.Run(async () =>
             {
+                await Task.Delay(TimeSpan.FromSeconds(5), _consumerCts.Token); // Delay for a while until consumer initialized.
                 while (!_consumerCts.Token.IsCancellationRequested)
                 {
                     try
